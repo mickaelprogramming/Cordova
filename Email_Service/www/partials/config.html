@@ -1,0 +1,20 @@
+<section ng-controller="ConfigCtrl">
+	<section class="panel panel-padding">
+		<form ng-submit="updateConf()">
+			<p>Comment utiliser le tag : </p>
+			<p>Si le tag = "%%" et le sujet = "Ceci est un mail dont la référence est %%" alors le sujet final = "Ceci est un mail dont la référence est XXXXXX" XXXXXX étant la référence.</p>
+			<p>Pour configurer Email Service modifier les champs suivants :</p>
+			<div>
+				<input class="input input-align" type="text" placeholder="tag" ng-model="tag">
+			</div>
+			<div>
+				<input class="input input-align" type="text" placeholder="mail destinataire" ng-model="destinataire">
+			</div>
+			<div>
+				<textarea class="input" rows="3" placeholder="sujet" ng-model="sujet"></textarea>
+			</div>
+        	<input class="button button-blue button-modifier" type="submit" value="Modifier"/>
+		</form>
+		
+	</section>
+</section>

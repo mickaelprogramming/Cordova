@@ -1,0 +1,40 @@
+<section ng-controller="EmailCtrl">
+    <section class="panel panel-padding" ng-class="{center: panel == 0, left : panel != 0}">
+            <div id="content">
+                <div class="content-centrer">
+                    <a class="button button-blue" ng-click="commencer()"><span>Commencer</span></a>
+                </div>
+            </div>
+    </section>
+    
+    <section class="panel panel-padding" ng-class="{center: panel == 1, right: panel == 0, left : panel != 1 && panel !=0}">
+        Bienvenue sur l'application d'envoi de mail pré-configuré. Celle-ci a pour but de vous faciliter l'envoi de vos emails.
+        <div class="content-filtre">
+            <input class="input input-align" type="text" placeholder="Filtre" ng-model="filtre"/>
+            <a ng-click="addAndCreateEmail()"><i class="icone-size icone-add"></i></a>
+            <a ng-click="clearfiltre()"><i class="icone-size icone-balai"></i></a>
+        </div>
+        <table class="customtable">
+            <tr ng-repeat="reference in references | filter: filtre | orderBy: reference" ><!--toString() méthode de js.String-->
+                <td class="colone1" ng-click="createEmail(reference.reference)">{{reference.reference}}</td>
+                <td class="colone2 content-centrer"ng-click="deleteItem(reference.reference)"><i class="icone-supress icone-size"></i></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="panel panel-padding" ng-class="{center: panel == 2, right : panel != 2}">
+        <form ng-submit="envoyer()">
+            <div class="after-reference">
+                <p class="text">Référence</p>
+                <input class="input input-align input-transform" type="text" placeholder="Référence" ng-model="nouvref">
+            </div>
+            <div>
+                <textarea class="input customtextarea" rows="10" placeholder="Objet du mail" ng-model="objet"/>
+            </div>
+            <div class="content-buttons">
+                <input class="button button-blue button-envoyer" type="submit" value="Envoyer">
+                <button type="button" class="button button-blue button-precedent" ng-click="retourHome()">Précédent</button>
+            </div>
+        </form>
+    </section>
+</section>
